@@ -1,0 +1,105 @@
+:root {
+  --main-font: 'Roboto', sans-serif;
+  --main-color: #333;
+  --bg-color: #f9f9f9;
+  --accent-color: #007acc;
+  --padding-section: 40px 0;
+}
+
+body {
+  font-family: var(--main-font);
+  margin: 0;
+  color: var(--main-color);
+  background-color: var(--bg-color);
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section {
+  padding: var(--padding-section);
+}
+
+.header-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+.main-nav {
+  display: flex;
+  gap: 20px;
+}
+
+.main-nav a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: color 300ms ease-in-out;
+}
+
+.main-nav a:hover {
+  color: #005b99;
+}
+
+.mobile-toggle {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.animated-title {
+  animation: fadeInUp 0.8s ease-in-out;
+}
+
+/* Простий ефект появи */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- АДАПТИВНІСТЬ ---------- */
+
+@media (max-width: 768px) {
+  .main-nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .main-nav.active {
+    display: flex;
+  }
+
+  .mobile-toggle {
+    display: block;
+  }
+
+  .header-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .logo {
+    margin-bottom: 10px;
+  }
+}
